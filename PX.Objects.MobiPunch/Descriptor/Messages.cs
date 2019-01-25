@@ -1,6 +1,10 @@
-﻿namespace PX.Objects.MobiPunch.Descriptor
+﻿using PX.Common;
+using PX.Data;
+using System;
+
+namespace PX.Objects.MobiPunch.Descriptor
 {
-//    [PXLocalizable(Messages.Prefix)]
+    [PXLocalizable(Messages.Prefix)]
     public static class Messages
     {
         public const string Prefix = "MP";
