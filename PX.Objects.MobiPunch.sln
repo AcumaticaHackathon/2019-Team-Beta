@@ -9,6 +9,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{DF276158-D6F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CustomizationProject", "CustomizationProject", "{BD883BBF-CF3B-4D6E-A5C5-E5BFF5D4ECB7}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Site", "Site\", "{F7DA0AA8-84BA-40B1-A79B-2A3022FEAFCA}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.1"
+		ProjectReferences = "{8802507e-1ea0-4733-9baa-8150ed38fb37}|PX.Objects.MobiPunch.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_54151"
+		Debug.AspNetCompiler.PhysicalPath = "Site\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54151\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_54151"
+		Release.AspNetCompiler.PhysicalPath = "Site\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54151\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "54151"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +40,8 @@ Global
 		{8802507E-1EA0-4733-9BAA-8150ED38FB37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8802507E-1EA0-4733-9BAA-8150ED38FB37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8802507E-1EA0-4733-9BAA-8150ED38FB37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7DA0AA8-84BA-40B1-A79B-2A3022FEAFCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7DA0AA8-84BA-40B1-A79B-2A3022FEAFCA}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
