@@ -5,9 +5,9 @@ GO
 
 CREATE TABLE [dbo].[PunchEmployeeActivity](
 	[CompanyID] [INT] NOT NULL,
-	[EmployeeID] [INT] NOT NULL,
 	[NoteID] [UNIQUEIDENTIFIER] NOT NULL,
 	[RefNoteID] [UNIQUEIDENTIFIER] NOT NULL,
+	[EmployeeID] [INT] NOT NULL,
 	[Status] [CHAR](1) NOT NULL,
 	[IsApproved] [BIT] NOT NULL,
 	[IsRejected] [BIT] NOT NULL,

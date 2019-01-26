@@ -52,6 +52,8 @@
   <ItemGroup>
     <Compile Include="DAC\PunchEmployee.cs" />
     <Compile Include="DAC\PunchEmployeeActivity.cs" />
+    <Compile Include="Descriptor\PunchEmployeeActivityStatusAttribute.cs" />
+    <Compile Include="Descriptor\PunchEmployeeStatusAttribute.cs" />
     <Compile Include="Descriptor\Messages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
