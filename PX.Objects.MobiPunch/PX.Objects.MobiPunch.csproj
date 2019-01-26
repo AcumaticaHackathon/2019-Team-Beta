@@ -57,4 +57,24 @@
     <Folder Include="DAC\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>SET ACUMATICAROOT="$(SolutionDir)Site"
+SET CSTVERSION=%25DATE%25 %25TIME%25
+
+if not exist "$(SolutionDir)CustomizationProject\MobiPunch\Bin\" mkdir "$(SolutionDir)CustomizationProject\MobiPunch\Bin\"
+
+copy "$(TargetDir)\$(TargetFileName)" "$(SolutionDir)CustomizationProject\MobiPunch\Bin\$(TargetFileName)" /y
+
+
+if "Release"=="$(ConfigurationName)"  (
+
+ECHO ON
+ECHO Building Customization Version %25CSTVERSION%25 
+
+if not exist "$(SolutionDir)CustomizationProject\Install\" mkdir "$(SolutionDir)CustomizationProject\Install\"
+
+$(SolutionDir)CustomizationProject\CstBuildProject\PX.CstBuildProject.exe /website %25ACUMATICAROOT%25 /in "$(SolutionDir)CustomizationProject\MobiPunch" /out "$(SolutionDir)CustomizationProject\Install\MobiPunch.zip" /level "1" /description "Mobile Punch - %25CSTVERSION%25"
+
+)</PostBuildEvent>
+  </PropertyGroup>
 </Project>
