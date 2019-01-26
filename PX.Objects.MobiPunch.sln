@@ -6,6 +6,10 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PX.Objects.MobiPunch", "PX.Objects.MobiPunch\PX.Objects.MobiPunch.csproj", "{8802507E-1EA0-4733-9BAA-8150ED38FB37}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{DF276158-D6F4-4CF2-BEE4-31F5B1FAF263}"
+	ProjectSection(SolutionItems) = preProject
+		SQL\PunchEmployee.sql = SQL\PunchEmployee.sql
+		SQL\PunchEmployeeActivity.sql = SQL\PunchEmployeeActivity.sql
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CustomizationProject", "CustomizationProject", "{BD883BBF-CF3B-4D6E-A5C5-E5BFF5D4ECB7}"
 EndProject
