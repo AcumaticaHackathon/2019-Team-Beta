@@ -79,6 +79,7 @@ namespace PX.Objects.MobiPunch
 
             if(row.Status == PunchEmployeeStatusAttribute.PunchedOut)
             {
+                PXTrace.WriteInformation($"Punching In; IsMobile = {IsMobile}; Mem_GPSLatitudeLongitude = {row.Mem_GPSLatitudeLongitude}");
                 //TODO: Define condition for conditional punch
                 row.Status = PunchEmployeeStatusAttribute.PunchedIn;
                 row.PunchInDateTime = TimePunchedAttribute.PunchDateTime;
@@ -92,6 +93,7 @@ namespace PX.Objects.MobiPunch
             else
             {
                 var punchActivity = CreatePunchOutActivity(row);
+                PXTrace.WriteInformation($"Punching Out; IsMobile = {IsMobile}; Mem_GPSLatitudeLongitude = {row.Mem_GPSLatitudeLongitude}");
                 if (punchActivity?.EmployeeID != null)
                 {
                     PunchActivity.Insert(punchActivity);
