@@ -11,7 +11,7 @@ namespace PX.Objects.MobiPunch
     public class MPActivityMaint : PXGraph<MPActivityMaint, PunchEmployeeActivity>
     {
         public PXSelect<PunchEmployeeActivity> Activities;
-        [PXViewName(Messages.Approval)]
+        [PXViewName(EP.Messages.Approval)]
         public EPApprovalAction<EPTimeCard, EPTimeCard.isApproved, EPTimeCard.isRejected> Approval;
     }
 }
