@@ -3,13 +3,13 @@
 <%@ MasterType VirtualPath="~/MasterPages/FormTab.master" %>
 
 <asp:Content ID="cont1" ContentPlaceHolderID="phDS" runat="Server">
-    <px:PXDataSource ID="ds" runat="server" Visible="True" Width="100%" TypeName="PX.Objects.MobiPunch.PunchEntry">
+    <px:PXDataSource ID="ds" runat="server" Visible="True" Width="100%" TypeName="PX.Objects.MobiPunch.PunchEntry" PrimaryView="Document">
 		<CallbackCommands>
 		</CallbackCommands>
 	</px:PXDataSource>
 </asp:Content>
 <asp:Content ID="cont2" ContentPlaceHolderID="phF" runat="Server">
-    <px:PXFormView ID="form" runat="server" DataSourceID="ds" Style="z-index: 100" Width="100%">
+    <px:PXFormView ID="form" runat="server" DataSourceID="ds" Style="z-index: 100" Width="100%" DataMember="Document">
 		<Template>
 			<px:PXLayoutRule runat="server" StartRow="True"/>
 		</Template>

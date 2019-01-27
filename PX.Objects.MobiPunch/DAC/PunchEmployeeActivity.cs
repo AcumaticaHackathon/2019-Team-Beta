@@ -7,7 +7,6 @@ using PX.Objects.EP;
 using PX.Objects.GL;
 using PX.Objects.PM;
 using PX.SM;
-using static PX.Objects.CR.CRActivity;
 
 namespace PX.Objects.MobiPunch
 {
@@ -80,7 +79,7 @@ namespace PX.Objects.MobiPunch
         #region PunchInDateTime
         public abstract class punchInDateTime : IBqlField { }
 
-        [EPAllDaySupportDateTime(AllDayField = typeof(allDay), DisplayNameDate = "Punch In Date", DisplayNameTime = "Punch In Time")]
+        [EPAllDaySupportDateTime(DisplayNameDate = "Punch In Date", DisplayNameTime = "Punch In Time")]
         [PXFormula(typeof(TimeZoneNow))]
         [PXUIField(DisplayName = "Punch In Date Time")]
         public virtual DateTime? PunchInDateTime { get; set; }
@@ -110,7 +109,7 @@ namespace PX.Objects.MobiPunch
         #region PunchOutDateTime
         public abstract class punchOutDateTime : IBqlField { }
 
-        [EPAllDaySupportDateTime(AllDayField = typeof(allDay), DisplayNameDate = "Punch Out Date", DisplayNameTime = "Punch Out Time")]
+        [EPAllDaySupportDateTime(DisplayNameDate = "Punch Out Date", DisplayNameTime = "Punch Out Time")]
         [PXFormula(typeof(TimeZoneNow))]
         [PXUIField(DisplayName = "Punch Out Date Time")]
         public virtual DateTime? PunchOutDateTime { get; set; }
@@ -158,7 +157,7 @@ namespace PX.Objects.MobiPunch
         public abstract class projectID : IBqlField { }
 
         [EPActivityProjectDefault(typeof(isBillable))]
-        [EPProject(typeof(ownerID), FieldClass = ProjectAttribute.DimensionName)]
+        //TODO: FIGURE OUT OWNERID[EPProject(typeof(ownerID), FieldClass = ProjectAttribute.DimensionName)]
         [PXFormula(typeof(
             Switch<
                 Case<Where<Not<FeatureInstalled<FeaturesSet.projectModule>>>, DefaultValue<projectID>,
