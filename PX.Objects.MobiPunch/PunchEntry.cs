@@ -6,10 +6,11 @@ namespace PX.Objects.MobiPunch
 {
     public class PunchEntry : PXGraph<PunchEntry>
     {
+        public PXCancel<PunchEmployee> Cancel;
         public PXSelect<PunchEmployee> Document;
         public PXSelect<PunchEmployeeActivity> PunchActivity;
         
-        public PXAction<PunchEmployee> Punch;
+        public PXAction<PunchEmployee> PunchInOut;
 
         public PunchEntry()
         {
@@ -73,7 +74,7 @@ namespace PX.Objects.MobiPunch
 
         [PXButton]
         [PXUIField(DisplayName = "Punch")]
-        public virtual void punch()
+        public virtual void punchInOut()
         {
             var row = this.Document.Current;
 
@@ -105,7 +106,9 @@ namespace PX.Objects.MobiPunch
                 row.PunchInDateTime = null;
             }
 
-            this.Document.Update(row);
+            this.Document.Cache.Clear();
+            this.Document.Cache.Update(row);
+
             this.Actions.PressSave();
         }
 
@@ -142,7 +145,7 @@ namespace PX.Objects.MobiPunch
             if (row == null)
                 return;
             
-            this.Punch.SetCaption(row.Status == PunchEmployeeStatusAttribute.PunchedOut ? "Punch In" : "Punch Out");
+            this.PunchInOut.SetCaption(row.Status == PunchEmployeeStatusAttribute.PunchedOut ? "Punch In" : "Punch Out");
         }
     }
 }
