@@ -56,6 +56,7 @@
     <Compile Include="Descriptor\PunchEmployeeStatusAttribute.cs" />
     <Compile Include="Descriptor\Messages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PunchReview.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -65,8 +66,13 @@ SET CSTVERSION=%25DATE%25 %25TIME%25
 
 if not exist "$(SolutionDir)CustomizationProject\MobiPunch\Bin\" mkdir "$(SolutionDir)CustomizationProject\MobiPunch\Bin\"
 
-copy "$(TargetDir)\$(TargetFileName)" "$(SolutionDir)CustomizationProject\MobiPunch\Bin\$(TargetFileName)" /y
+copy "$(TargetDir)$(TargetFileName)" "$(SolutionDir)CustomizationProject\MobiPunch\Bin\$(TargetFileName)" /y
 
+if not exist "$(SolutionDir)CustomizationProject\MobiPunch\Pages\MP\" mkdir "$(SolutionDir)CustomizationProject\MobiPunch\Pages\MP\"
+
+if exist "$(SolutionDir)Site\Pages\MP\" (
+xcopy /E /Y /Q "$(SolutionDir)Site\Pages\MP\*.aspx*" "$(SolutionDir)CustomizationProject\MobiPunch\Pages\MP\" &gt; nul
+)
 
 if "Release"=="$(ConfigurationName)"  (
 

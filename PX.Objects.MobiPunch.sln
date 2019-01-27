@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{DF276158-D6F
 		SQL\PunchEmployeeActivity.sql = SQL\PunchEmployeeActivity.sql
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CustomizationProject", "CustomizationProject", "{BD883BBF-CF3B-4D6E-A5C5-E5BFF5D4ECB7}"
-EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Site", "Site\", "{F7DA0AA8-84BA-40B1-A79B-2A3022FEAFCA}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.1"
