@@ -1,9 +1,9 @@
 ﻿<Sql TableName="PunchEmployeeActivity" TableSchemaXml="#CDATA">
     <CDATA name="TableSchemaXml"><![CDATA[<table name="PunchEmployeeActivity">
   <col name="CompanyID" type="Int" default="Zero" />
-  <col name="EmployeeID" type="Int" />
   <col name="NoteID" type="UniqueIdentifier" />
   <col name="RefNoteID" type="UniqueIdentifier" />
+  <col name="EmployeeID" type="Int" />
   <col name="Status" type="Char(1)" />
   <col name="IsApproved" type="Bit" />
   <col name="IsRejected" type="Bit" />

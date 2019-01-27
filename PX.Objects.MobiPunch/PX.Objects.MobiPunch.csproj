@@ -59,6 +59,7 @@
     <Compile Include="Descriptor\PunchEmployeeActivityStatusAttribute.cs" />
     <Compile Include="Descriptor\PunchEmployeeStatusAttribute.cs" />
     <Compile Include="Descriptor\Messages.cs" />
+    <Compile Include="Descriptor\TimePunchedAttribute.cs" />
     <Compile Include="MPActivityMaint.cs" />
     <Compile Include="MPApprovalAutomation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

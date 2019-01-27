@@ -3,7 +3,7 @@
   <col name="CompanyID" type="Int" default="Zero" />
   <col name="EmployeeID" type="Int" />
   <col name="Status" type="Char(1)" />
-  <col name="PunchInDateTime" type="SmallDateTime" />
+  <col name="PunchInDateTime" type="SmallDateTime" nullable="true" />
   <col name="PunchInGPSLatitude" type="Decimal(9,6)" nullable="true" />
   <col name="PunchInGPSLongitude" type="Decimal(9,6)" nullable="true" />
   <col name="Description" type="NVarChar(256)" nullable="true" />

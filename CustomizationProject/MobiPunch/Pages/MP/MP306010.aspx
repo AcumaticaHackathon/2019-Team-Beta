@@ -8,7 +8,7 @@
 		TypeName="PX.Objects.MobiPunch.MPActivityMaint">
 		<CallbackCommands>
 		</CallbackCommands>
-	</px:PXDataSource>
+	</px:PXDataSource> 
 </asp:Content>
 <asp:Content ID="cont2" ContentPlaceHolderID="phF" runat="Server">
     <px:PXFormView ID="form" runat="server" DataSourceID="ds" DataMember="Activities" NoteIndicator="True"
