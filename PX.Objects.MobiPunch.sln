@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PX.Objects.MobiPunch", "PX.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{DF276158-D6F4-4CF2-BEE4-31F5B1FAF263}"
 	ProjectSection(SolutionItems) = preProject
+		SQL\InsertMPSetupApproval.sql = SQL\InsertMPSetupApproval.sql
 		SQL\MPSetupApproval.sql = SQL\MPSetupApproval.sql
 		SQL\PunchEmployee.sql = SQL\PunchEmployee.sql
 		SQL\PunchEmployeeActivity.sql = SQL\PunchEmployeeActivity.sql

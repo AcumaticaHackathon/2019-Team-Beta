@@ -71,6 +71,7 @@ namespace PX.Objects.MobiPunch
             foreach (PunchEmployeeActivity item in items)
             {
                 item.IsRejected = true;
+                item.IsApproved = false;
                 Activities.Update(item);
 
                 Save.Press();
