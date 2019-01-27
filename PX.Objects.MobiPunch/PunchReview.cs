@@ -15,19 +15,26 @@ namespace PX.Objects.MobiPunch
         [PXFilterable]
         public PXSelect<
             PunchEmployee,
-            Where<PunchEmployee.employeeID, Equal<Current<PunchEmployeeFilter.employeeID>>,
-                Or<Current<PunchEmployeeFilter.employeeID>, IsNull>>> EmployeeActivity;
+            Where<Where<PunchEmployee.employeeID, Equal<Current<PunchEmployeeFilter.employeeID>>,
+                Or<Current<PunchEmployeeFilter.employeeID>, IsNull>>>> Documents;
 
         public PunchReview()
         {
-            EmployeeActivity.AllowInsert = false;
-            EmployeeActivity.AllowDelete = false;
+            Documents.AllowInsert = false;
+            Documents.AllowDelete = false;
         }
 
         protected virtual void PunchEmployee_RowSelected(PXCache cache, PXRowSelectedEventArgs e)
         {
-            PXUIFieldAttribute.SetEnabled<PunchEmployee.employeeID>(cache, e.Row, false);
-            PXUIFieldAttribute.SetEnabled<PunchEmployee.status>(cache, e.Row, false);
+            var row = (PunchEmployee) e.Row;
+            if (row == null)
+            {
+                return;
+            }
+
+            PXUIFieldAttribute.SetEnabled<PunchEmployee.employeeID>(cache, row, false);
+            PXUIFieldAttribute.SetEnabled<PunchEmployee.status>(cache, row, false);
+            PXUIFieldAttribute.SetEnabled<PunchEmployee.punchInDateTime>(cache, row, row.Status != PunchEmployeeStatusAttribute.PunchedOut);
         }
 
         public PXAction<PunchEmployeeFilter> PunchOut;
@@ -35,6 +42,15 @@ namespace PX.Objects.MobiPunch
         [PXButton]
         public virtual IEnumerable punchOut(PXAdapter adapter)
         {
+            if (Documents.Current?.Status == null || Documents.Current?.Status == PunchEmployeeStatusAttribute.PunchedOut)
+            {
+                return adapter.Get();
+            }
+
+            var punch = CreateInstance<PunchEntry>();
+            punch.Document.Current = Documents.Current;
+            punch.Punch.Press();
+
             return adapter.Get();
         }
 
@@ -43,13 +59,13 @@ namespace PX.Objects.MobiPunch
         [PXButton]
         public virtual IEnumerable ViewPunchInGPSOnMap(PXAdapter adapter)
         {
-            if (EmployeeActivity.Current?.PunchInGPSLatitude == null ||
-                EmployeeActivity.Current.PunchInGPSLongitude == null)
+            if (Documents.Current?.PunchInGPSLatitude == null ||
+                Documents.Current.PunchInGPSLongitude == null)
             {
                 return adapter.Get();
             }
 
-            new PX.Data.GoogleMapLatLongRedirector().ShowAddressByLocation(EmployeeActivity.Current.PunchInGPSLatitude, EmployeeActivity.Current.PunchInGPSLongitude);
+            new PX.Data.GoogleMapLatLongRedirector().ShowAddressByLocation(Documents.Current.PunchInGPSLatitude, Documents.Current.PunchInGPSLongitude);
 
             return adapter.Get();
         }
@@ -57,6 +73,8 @@ namespace PX.Objects.MobiPunch
         [Serializable]
         public class PunchEmployeeFilter : IBqlTable
         {
+            #region EmployeeID
+
             public abstract class employeeID : IBqlField { }
 
             [PXDBInt(IsKey = true)]
@@ -64,6 +82,26 @@ namespace PX.Objects.MobiPunch
             [PXSubordinateAndWingmenSelector]
             [PXFieldDescription]
             public virtual Int32? EmployeeID { get; set; }
+
+            #endregion
+
+            #region ShowPunchIn
+            public abstract class showPunchIn : IBqlField { }
+
+            [PXBool]
+            [PXUIField(DisplayName = "Punch In")]
+            [PXUnboundDefault(true)]
+            public virtual bool? ShowPunchIn { get; set; }
+            #endregion
+
+            #region ShowPunchOut
+            public abstract class showPunchOut : IBqlField { }
+
+            [PXBool]
+            [PXUIField(DisplayName = "Punch Out")]
+            [PXUnboundDefault(true)]
+            public virtual bool? ShowPunchOut { get; set; }
+            #endregion
         }
     }
 }
