@@ -44,8 +44,8 @@ namespace PX.Objects.MobiPunch
         #endregion
         
         public abstract class timeSpentCalc : IBqlField { }
-        [PXInt]
         [PXTimeList(30, 335, ExclusiveValues = false)]
+        [TimePunched(typeof(punchInDateTime))]
         [PXUIField(DisplayName = "Time Spent", Enabled = false)]
         public virtual Int32? TimeSpentCalc { get; set; }
 

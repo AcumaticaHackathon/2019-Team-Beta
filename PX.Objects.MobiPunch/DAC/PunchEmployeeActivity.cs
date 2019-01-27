@@ -143,11 +143,10 @@ namespace PX.Objects.MobiPunch
         public abstract class requireApproval : IBqlField { }
         #endregion
 
-        #region Subject
+        #region Description
         public abstract class description : IBqlField { }
 
         [PXDBString(Common.Constants.TranDescLength, InputMask = "", IsUnicode = true)]
-        [PXDefault]
         [PXUIField(DisplayName = "Description", Visibility = PXUIVisibility.SelectorVisible)]
         [PXFieldDescription]
         [PXNavigateSelector(typeof(description))]

@@ -11,8 +11,6 @@ namespace PX.Objects.MobiPunch
         
         public PXAction<PunchEmployee> Punch;
 
-        public static DateTime PunchDateTime => PX.Common.PXTimeZoneInfo.Now;
-
         public PXAction<PunchEmployee> viewPunchInGPSOnMap;
         [PXUIField(DisplayName = "View on Map", MapEnableRights = PXCacheRights.Select, MapViewRights = PXCacheRights.Select)]
         [PXButton]
@@ -76,7 +74,7 @@ namespace PX.Objects.MobiPunch
             {
                 //TODO: Define condition for conditional punch
                 row.Status = PunchEmployeeStatusAttribute.PunchedIn;
-                row.PunchInDateTime = PunchDateTime;
+                row.PunchInDateTime = TimePunchedAttribute.PunchDateTime;
                 if (IsMobile)
                 {
                     string[] parts = row.Mem_GPSLatitudeLongitude.Split(':');
@@ -112,7 +110,7 @@ namespace PX.Objects.MobiPunch
                 return activity;
             }
 
-            activity.PunchOutDateTime = PunchDateTime;
+            activity.PunchOutDateTime = TimePunchedAttribute.PunchDateTime;
             activity.RequireApproval = punchEmployee.Status == PunchEmployeeStatusAttribute.ConditionallyPunchedIn;
 
             if (IsMobile)
