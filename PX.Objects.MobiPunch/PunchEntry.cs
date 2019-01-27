@@ -96,7 +96,10 @@ namespace PX.Objects.MobiPunch
                 PXTrace.WriteInformation($"Punching Out; IsMobile = {IsMobile}; Mem_GPSLatitudeLongitude = {row.Mem_GPSLatitudeLongitude}");
                 if (punchActivity?.EmployeeID != null)
                 {
-                    PunchActivity.Insert(punchActivity);
+                    //PunchActivity.Insert(punchActivity);
+                    var approvalGraph = CreateInstance<MPActivityMaint>();
+                    approvalGraph.Activities.Insert(punchActivity);
+                    approvalGraph.Actions.PressSave();
                 }
                 row.Status = PunchEmployeeStatusAttribute.PunchedOut;
                 row.PunchInDateTime = null;
