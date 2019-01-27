@@ -21,7 +21,7 @@
 	<px:PXGrid ID="grid" runat="server" DataSourceID="ds" Style="z-index: 100" 
 		Width="100%" Height="150px" SkinID="Details" TabIndex="700" FilesIndicator="False" NoteIndicator="True" SyncPosition="True" AdjustPageSize="Auto" AllowPaging="True" >
 		<Levels>
-			<px:PXGridLevel DataKeyNames="NoteID" DataMember="Documents" >
+			<px:PXGridLevel DataKeyNames="NoteID" DataMember="EmployeeActivity" >
 			    <RowTemplate>
                     <px:PXLayoutRule runat="server" StartRow="True"/>
                     <px:PXSelector CommitChanges="True" ID="edEmployeeID" runat="server" DataField="EmployeeID" TextField="AcctCD" ValueField="AcctCD" TextMode="Search" NullText="<SELECT>"

@@ -50,7 +50,7 @@ namespace PX.Objects.MobiPunch
         #region Status
 
         [PXDBString(1)]
-        [PXDefault(PunchEmployeeActivityStatusAttribute.MergeStatus)]
+        [PXDefault(PunchEmployeeActivityStatusAttribute.HoldStatus)]
         [PunchEmployeeActivityStatus]
         [PXUIField(DisplayName = "Status", Enabled = false)]
         public virtual String Status { get; set; }
@@ -138,7 +138,6 @@ namespace PX.Objects.MobiPunch
 
         #region RequireApproval
         [PXDBBool]
-        [PXDefault(false)]
         [PXUIField(DisplayName = "Require Approval")]
         [PXDefault(false)]
         public virtual bool? RequireApproval { get; set; }
