@@ -2,12 +2,16 @@
 using PX.Data;
 using System;
 
-namespace PX.Objects.MobiPunch.Descriptor
+namespace PX.Objects.MobiPunch
 {
     [PXLocalizable(Messages.Prefix)]
     public static class Messages
     {
         public const string Prefix = "MP";
+
+        public const string PunchedIn = "Punched In";
+        public const string PunchedOut = "Punched Out";
+        public const string ConditionallyPunchedIn = "Conditionally Punched In";
 
         /// <summary>
         /// Localize the message
