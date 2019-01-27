@@ -1,1 +1,0 @@
-﻿<MobileSiteMap ScreenID="sitemap" Script="update sitemap {&#xD;&#xA;  add item &quot;MP301000&quot; {&#xD;&#xA;    displayName = &quot;Punch&quot;&#xD;&#xA;    icon=&quot;system://Stopwatch&quot;&#xD;&#xA;  }&#xD;&#xA;}" Type="update" />

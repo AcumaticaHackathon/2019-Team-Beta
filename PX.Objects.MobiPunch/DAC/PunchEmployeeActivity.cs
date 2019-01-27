@@ -186,7 +186,7 @@ namespace PX.Objects.MobiPunch
         #region LabourItemID
         public abstract class labourItemID : IBqlField { }
 
-        [PXDBInt(BqlField = typeof(PMTimeActivity.labourItemID))]
+        [PXDBInt()]
         [PXUIField(Visible = false)]
         public virtual int? LabourItemID { get; set; }
         #endregion
