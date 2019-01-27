@@ -80,7 +80,7 @@ namespace PX.Objects.MobiPunch
         #region PunchInDateTime
         public abstract class punchInDateTime : IBqlField { }
 
-        [EPStartDate(AllDayField = typeof(allDay), DisplayName = "Punch In Date Time", DisplayNameDate = "Punch In Date", DisplayNameTime = "Punch In Time")]
+        [EPAllDaySupportDateTime(AllDayField = typeof(allDay), DisplayNameDate = "Punch In Date", DisplayNameTime = "Punch In Time")]
         [PXFormula(typeof(TimeZoneNow))]
         [PXUIField(DisplayName = "Punch In Date Time")]
         public virtual DateTime? PunchInDateTime { get; set; }
@@ -110,7 +110,7 @@ namespace PX.Objects.MobiPunch
         #region PunchOutDateTime
         public abstract class punchOutDateTime : IBqlField { }
 
-        [EPStartDate(AllDayField = typeof(allDay), DisplayName = "Punch Out Date Time", DisplayNameDate = "Punch Out Date", DisplayNameTime = "Punch Out Time")]
+        [EPAllDaySupportDateTime(AllDayField = typeof(allDay), DisplayNameDate = "Punch Out Date", DisplayNameTime = "Punch Out Time")]
         [PXFormula(typeof(TimeZoneNow))]
         [PXUIField(DisplayName = "Punch Out Date Time")]
         public virtual DateTime? PunchOutDateTime { get; set; }
