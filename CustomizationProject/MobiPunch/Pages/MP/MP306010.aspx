@@ -19,22 +19,23 @@
 							ControlSize="M" />
                         <px:PXSelector ID="edEmployeeID" runat="server" DataField="EmployeeID"></px:PXSelector>
                         <px:PXDropDown ID="edStatus" runat="server" AllowNull="False" DataField="Status" CommitChanges="True" />
+                        <px:PXCheckBox ID="edHold" runat="server" DataField="Hold" CommitChanges="true"/>   
                         <px:PXLayoutRule ID="PXLayoutRule3" runat="server" Merge="True" />
-                        <px:PXDateTimeEdit ID="edPunchInDateTime_Date" runat="server" DataField="PunchInDateTime"
-							CommitChanges="True" />
-                        <px:PXDateTimeEdit ID="edPunchInDateTime_Time" TimeMode="True" SuppressLabel="true" runat="server" DataField="PunchInDateTime"
+                        <px:PXDateTimeEdit ID="edPunchInDateTime_Date" runat="server" DataField="PunchInDateTime_Date"
+							CommitChanges="True"  />
+                        <px:PXDateTimeEdit ID="edPunchInDateTime_Time" TimeMode="True" Width="84" SuppressLabel="true" runat="server" DataField="PunchInDateTime_Time"
 							CommitChanges="True" />
                         <px:PXLayoutRule ID="PXLayoutRule2" runat="server" Merge="True" />
-                        <px:PXDateTimeEdit ID="edPunchOutDateTime_Date" runat="server" DataField="PunchOutDateTime"
+                        <px:PXDateTimeEdit ID="edPunchOutDateTime_Date" runat="server" DataField="PunchOutDateTime_Date"
 							CommitChanges="True" />
-                        <px:PXDateTimeEdit ID="edPunchOutDateTime_Time" TimeMode="True" runat="server" SuppressLabel="true" DataField="PunchOutDateTime"
+                        <px:PXDateTimeEdit ID="edPunchOutDateTime_Time" TimeMode="True" Width="84" runat="server" SuppressLabel="true" DataField="PunchOutDateTime_Time"
 							CommitChanges="True" />
                         <px:PXLayoutRule ID="PXLayoutRule4" runat="server" />
                         <px:PXCheckBox ID="edRequireApproval" runat="server" DataField="RequireApproval" />    
                         <px:PXTextEdit ID="edDescription" runat="server" DataField="Description" />
-                        <px:PXSegmentMask ID="edProjectID" runat="server" DataField="ProjectID"/>
-                        <px:PXSegmentMask ID="edProjectTaskID" runat="server" DataField="ProjectTaskID"/>
-                        <px:PXSelector ID="edEarningTypeID" runat="server" DataField="EarningTypeID"/>
+                        <px:PXTextEdit ID="edProjectID" runat="server" DataField="ProjectID"></px:PXTextEdit>
+                        <px:PXSelector ID="edProjectTaskID" runat="server" DataField="ProjectTaskID"></px:PXSelector>
+                        <px:PXSelector ID="edEarningTypeID" runat="server" DataField="EarningTypeID"></px:PXSelector>
                         <px:PXCheckBox ID="edIsBillable" runat="server" DataField="IsBillable" />    
 					</px:PXPanel>
 <%--                    <px:PXGrid ID="gridApproval" runat="server" DataSourceID="ds" Width="100%" SkinID="DetailsInTab" NoteIndicator="True">
