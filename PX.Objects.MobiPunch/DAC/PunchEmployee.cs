@@ -1,10 +1,12 @@
 ﻿using System;
 using PX.Data;
 using PX.Data.EP;
+using PX.Data.ReferentialIntegrity.Attributes;
 using PX.Objects.CR;
 using PX.Objects.CS;
 using PX.Objects.EP;
 using PX.Objects.GL;
+using PX.Objects.IN;
 using PX.Objects.PM;
 using static PX.Objects.CR.CRActivity;
 
@@ -27,6 +29,7 @@ namespace PX.Objects.MobiPunch
         #region Status
         [PXDBString(1, IsFixed = true, InputMask = "")]
         [PunchEmployeeStatus]
+        [PXDefault(PunchEmployeeStatusAttribute.PunchedOut)]
         [PXUIField(DisplayName = "Status")]
         public virtual string Status { get; set; }
         public abstract class status : IBqlField { }
@@ -36,8 +39,7 @@ namespace PX.Objects.MobiPunch
         public abstract class punchInDateTime : IBqlField { }
 
         [EPAllDaySupportDateTime(DisplayNameDate = "Punch In Date", DisplayNameTime = "Punch In Time")]
-        [PXFormula(typeof(TimeZoneNow))]
-        [PXUIField(DisplayName = "Punch In Date Time")]
+        [PXUIField(DisplayName = "Punch In Date Time", Enabled = false)]
         public virtual DateTime? PunchInDateTime { get; set; }
         #endregion
         
@@ -71,7 +73,6 @@ namespace PX.Objects.MobiPunch
         public abstract class description : IBqlField { }
 
         [PXDBString(Common.Constants.TranDescLength, InputMask = "", IsUnicode = true)]
-        [PXDefault]
         [PXUIField(DisplayName = "Description", Visibility = PXUIVisibility.SelectorVisible)]
         [PXFieldDescription]
         [PXNavigateSelector(typeof(description))]
@@ -105,8 +106,8 @@ namespace PX.Objects.MobiPunch
         #region LabourItemID
         public abstract class labourItemID : IBqlField { }
 
-        [PXDBInt(BqlField = typeof(PMTimeActivity.labourItemID))]
-        [PXUIField(Visible = false)]
+        [PMLaborItem(typeof(projectID), typeof(earningTypeID), typeof(Select<EPEmployee, Where<EPEmployee.bAccountID, Equal<Current<employeeID>>>>))]
+        [PXForeignReference(typeof(Field<labourItemID>.IsRelatedTo<InventoryItem.inventoryID>))]
         public virtual int? LabourItemID { get; set; }
         #endregion
 

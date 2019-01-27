@@ -22,6 +22,7 @@
 							CommitChanges="True" />
 			<px:PXDateTimeEdit ID="edPunchInDateTime_Time" runat="server" DataField="PunchInDateTime_Time"
 				TimeMode="true" SuppressLabel="true" Width="84" CommitChanges="True" />
+            <px:PXLayoutRule ID="PXLayoutRule1" runat="server" />          
             <px:PXTimeSpan runat="server" DataField="TimeSpentCalc" ID="RegularTime" Enabled="False" Size="XS" LabelWidth="55" InputMask="hh:mm" MaxHours="99" SummaryMode="true"/>
             <px:PXLayoutRule runat="server" StartColumn="True">
             </px:PXLayoutRule>

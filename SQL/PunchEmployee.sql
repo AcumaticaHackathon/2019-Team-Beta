@@ -7,7 +7,7 @@ CREATE TABLE [dbo].[PunchEmployee](
 	[CompanyID] [INT] NOT NULL,
 	[EmployeeID] [INT] NOT NULL,
 	[Status] [CHAR](1) NOT NULL,
-	[PunchInDateTime] [DATETIME2](7) NOT NULL,
+	[PunchInDateTime] [DATETIME2](7) NULL,
 	[PunchInGPSLatitude] [DECIMAL](9, 6) NULL,
 	[PunchInGPSLongitude] [DECIMAL](9, 6) NULL,
 	[Description] [NVARCHAR](256) NULL,
