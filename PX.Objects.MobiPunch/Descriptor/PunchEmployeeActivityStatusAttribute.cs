@@ -1,14 +1,6 @@
 ﻿using PX.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace PX.Objects.MobiPunch
 {
-
-
     public class PunchEmployeeActivityStatusAttribute : PXStringListAttribute
     {
         public const string ApprovedStatus = "A";

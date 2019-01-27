@@ -50,7 +50,7 @@ namespace PX.Objects.MobiPunch
         #region Status
 
         [PXDBString(1)]
-        [PXDefault("O")]
+        [PXDefault(PunchEmployeeActivityStatusAttribute.OpenStatus)]
         [PunchEmployeeActivityStatus]
         [PXUIField(DisplayName = "Status", Enabled = false)]
         public virtual String Status { get; set; }
@@ -139,6 +139,7 @@ namespace PX.Objects.MobiPunch
         #region RequireApproval
         [PXDBBool]
         [PXUIField(DisplayName = "Require Approval")]
+        [PXDefault(false)]
         public virtual bool? RequireApproval { get; set; }
         public abstract class requireApproval : IBqlField { }
         #endregion
@@ -157,7 +158,7 @@ namespace PX.Objects.MobiPunch
         #region ProjectID
         public abstract class projectID : IBqlField { }
 
-        [EPActivityProjectDefault(typeof(isBillable))]
+        [EPActivityProjectDefault(typeof(isBillable), PersistingCheck = PXPersistingCheck.Nothing)]
         //TODO: FIGURE OUT OWNERID[EPProject(typeof(ownerID), FieldClass = ProjectAttribute.DimensionName)]
         [PXFormula(typeof(
             Switch<
@@ -253,5 +254,22 @@ namespace PX.Objects.MobiPunch
         public virtual byte[] Tstamp { get; set; }
         public abstract class tstamp : IBqlField { }
         #endregion
+
+        public static implicit operator PunchEmployeeActivity(PunchEmployee row)
+        {
+            return new PunchEmployeeActivity
+            {
+                EmployeeID = row?.EmployeeID,
+                PunchInDateTime = row?.PunchInDateTime,
+                PunchInGPSLatitude = row?.PunchInGPSLatitude,
+                PunchInGPSLongitude = row?.PunchInGPSLongitude,
+                ProjectID = row?.ProjectID,
+                ProjectTaskID = row?.ProjectTaskID,
+                EarningTypeID = row?.EarningTypeID,
+                LabourItemID = row?.LabourItemID,
+                IsBillable = row?.IsBillable,
+                Description = row?.Description
+            };
+        }
     }
 }
