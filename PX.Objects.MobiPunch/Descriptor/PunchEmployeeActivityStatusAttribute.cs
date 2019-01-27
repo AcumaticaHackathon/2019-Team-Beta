@@ -11,6 +11,7 @@ namespace PX.Objects.MobiPunch
 
     public class PunchEmployeeActivityStatusAttribute : PXStringListAttribute
     {
+        public const string HoldStatus = "H";
         public const string ApprovedStatus = "A";
         public const string RejectedStatus = "C";
         
@@ -19,8 +20,8 @@ namespace PX.Objects.MobiPunch
 
         public PunchEmployeeActivityStatusAttribute()
             : base(
-                new[] { OpenStatus, ApprovedStatus, RejectedStatus, ReleasedStatus },
-                new[] {"Pending Approval", "Approved", "Rejected", "Released" })
+                new[] { OpenStatus, ApprovedStatus, RejectedStatus, ReleasedStatus, HoldStatus },
+                new[] {"Pending Approval", "Approved", "Rejected", "Released", "Hold" })
         { }
     }
 }

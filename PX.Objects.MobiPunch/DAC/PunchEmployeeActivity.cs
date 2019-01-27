@@ -12,7 +12,7 @@ namespace PX.Objects.MobiPunch
 {
     [PXEMailSource]
     [Serializable]
-    public class PunchEmployeeActivity : IBqlTable
+    public class PunchEmployeeActivity : IBqlTable, PX.Data.EP.IAssign
     {
         #region NoteID
         public abstract class noteID : IBqlField { }
@@ -50,7 +50,7 @@ namespace PX.Objects.MobiPunch
         #region Status
 
         [PXDBString(1)]
-        [PXDefault("O")]
+        [PXDefault("H")]
         [PunchEmployeeActivityStatus]
         [PXUIField(DisplayName = "Status", Enabled = false)]
         public virtual String Status { get; set; }
@@ -138,6 +138,7 @@ namespace PX.Objects.MobiPunch
 
         #region RequireApproval
         [PXDBBool]
+        [PXDefault(false)]
         [PXUIField(DisplayName = "Require Approval")]
         public virtual bool? RequireApproval { get; set; }
         public abstract class requireApproval : IBqlField { }
@@ -253,5 +254,66 @@ namespace PX.Objects.MobiPunch
         public virtual byte[] Tstamp { get; set; }
         public abstract class tstamp : IBqlField { }
         #endregion
+
+        #region Hold
+        public abstract class hold : IBqlField { }
+        protected Boolean? _Hold;
+        [PXDBBool]
+        [PXDefault(true)]
+        [PXUIField(DisplayName = "Hold")]
+        public virtual Boolean? Hold
+        {
+            get
+            {
+                return this._Hold;
+            }
+            set
+            {
+                this._Hold = value;
+            }
+        }
+        #endregion
+        #region OwnerID
+        public abstract class ownerID : IBqlField { }
+        protected Guid? _OwnerID;
+        [PXDBGuid]
+        //[PXDefault(typeof(Coalesce<
+        //    Search<CREmployee.userID, Where<CREmployee.userID, Equal<Current<AccessInfo.userID>>, And<CREmployee.status, NotEqual<BAccount.status.inactive>>>>,
+        //    Search<BAccount.ownerID, Where<BAccount.bAccountID, Equal<Current<SOOrder.customerID>>>>>),
+        //    PersistingCheck = PXPersistingCheck.Nothing)]
+        [PX.TM.PXOwnerSelector]
+        [PXUIField(DisplayName = "Owner")]
+        public virtual Guid? OwnerID
+        {
+            get
+            {
+                return this._OwnerID;
+            }
+            set
+            {
+                this._OwnerID = value;
+            }
+        }
+        #endregion
+        #region WorkgroupID
+        public abstract class workgroupID : IBqlField { }
+        protected int? _WorkgroupID;
+        [PXDBInt]
+        //[PXDefault(typeof(Customer.workgroupID), PersistingCheck = PXPersistingCheck.Nothing)]
+        [PX.TM.PXCompanyTreeSelector]
+        [PXUIField(DisplayName = "Workgroup", Enabled = false)]
+        public virtual int? WorkgroupID
+        {
+            get
+            {
+                return this._WorkgroupID;
+            }
+            set
+            {
+                this._WorkgroupID = value;
+            }
+        }
+        #endregion
+
     }
 }

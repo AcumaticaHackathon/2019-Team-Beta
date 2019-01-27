@@ -2,7 +2,7 @@
     <CDATA name="TableSchemaXml"><![CDATA[<table name="PunchEmployeeActivity">
   <col name="CompanyID" type="Int" default="Zero" />
   <col name="NoteID" type="UniqueIdentifier" />
-  <col name="RefNoteID" type="UniqueIdentifier" />
+  <col name="RefNoteID" type="UniqueIdentifier" nullable="true" />
   <col name="EmployeeID" type="Int" />
   <col name="Status" type="Char(1)" />
   <col name="IsApproved" type="Bit" />
@@ -27,6 +27,9 @@
   <col name="LastModifiedByScreenID" type="Char(8)" />
   <col name="LastModifiedDateTime" type="DateTime" />
   <col name="tstamp" type="Timestamp" />
+  <col name="Hold" type="Bit" />
+  <col name="OwnerID" type="UniqueIdentifier" nullable="true" />
+  <col name="WorkgroupID" type="Int" nullable="true" />
   <index name="PunchEmployeeHistory_PK" clustered="true" primary="true" unique="true">
     <col name="CompanyID" />
     <col name="NoteID" />

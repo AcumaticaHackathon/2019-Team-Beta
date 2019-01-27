@@ -6,7 +6,7 @@ GO
 CREATE TABLE [dbo].[PunchEmployeeActivity](
 	[CompanyID] [INT] NOT NULL,
 	[NoteID] [UNIQUEIDENTIFIER] NOT NULL,
-	[RefNoteID] [UNIQUEIDENTIFIER] NOT NULL,
+	[RefNoteID] [UNIQUEIDENTIFIER] NULL,
 	[EmployeeID] [INT] NOT NULL,
 	[Status] [CHAR](1) NOT NULL,
 	[IsApproved] [BIT] NOT NULL,
@@ -31,6 +31,9 @@ CREATE TABLE [dbo].[PunchEmployeeActivity](
 	[LastModifiedByScreenID] [CHAR](8) NOT NULL,
 	[LastModifiedDateTime] [DATETIME] NOT NULL,
 	[tstamp] [TIMESTAMP] NOT NULL,
+	[Hold] [bit] NOT NULL,
+	[OwnerID] [uniqueidentifier] NULL,
+	[WorkgroupID] [int] NULL,
  CONSTRAINT [PunchEmployeeHistory_PK] PRIMARY KEY CLUSTERED 
 (
 	[CompanyID] ASC,
