@@ -11,6 +11,13 @@ namespace PX.Objects.MobiPunch
         
         public PXAction<PunchEmployee> Punch;
 
+        public PunchEntry()
+        {
+            PunchActivity.AllowInsert = false;
+            PunchActivity.AllowUpdate = false;
+            PunchActivity.AllowDelete = false;
+        }
+
         public PXAction<PunchEmployee> viewPunchInGPSOnMap;
         [PXUIField(DisplayName = "View on Map", MapEnableRights = PXCacheRights.Select, MapViewRights = PXCacheRights.Select)]
         [PXButton]
@@ -116,8 +123,8 @@ namespace PX.Objects.MobiPunch
             if (IsMobile)
             {
                 string[] parts = punchEmployee.Mem_GPSLatitudeLongitude.Split(':');
-                punchEmployee.PunchInGPSLatitude = decimal.Parse(parts[0]);
-                punchEmployee.PunchInGPSLongitude = decimal.Parse(parts[1]);
+                activity.PunchOutGPSLatitude = decimal.Parse(parts[0]);
+                activity.PunchOutGPSLongitude = decimal.Parse(parts[1]);
             }
 
             return activity;

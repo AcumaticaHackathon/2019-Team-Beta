@@ -82,8 +82,8 @@ namespace PX.Objects.MobiPunch
         #region ProjectID
         public abstract class projectID : IBqlField { }
 
-        [EPActivityProjectDefault(typeof(isBillable), PersistingCheck = PXPersistingCheck.Nothing)]
-        [ActiveProjectOrContractBaseAttribute]
+        [ProjectDefault(PersistingCheck = PXPersistingCheck.Nothing)]
+        [ActiveProjectOrContractBase]
         [PXFormula(typeof(
             Switch<
                 Case<Where<Not<FeatureInstalled<FeaturesSet.projectModule>>>, DefaultValue<projectID>,

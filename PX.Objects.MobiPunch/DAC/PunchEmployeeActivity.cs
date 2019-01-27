@@ -115,6 +115,12 @@ namespace PX.Objects.MobiPunch
         public virtual DateTime? PunchOutDateTime { get; set; }
         #endregion
 
+        public abstract class timeSpentCalc : IBqlField { }
+        [PXTimeList(30, 335, ExclusiveValues = false)]
+        [TimePunched(typeof(punchInDateTime), typeof(punchOutDateTime))]
+        [PXUIField(DisplayName = "Time Spent", Enabled = false)]
+        public virtual Int32? TimeSpentCalc { get; set; }
+
         #region PunchOutGPSLatitude
         public abstract class punchOutGPSLatitude : PX.Data.IBqlField
         {
@@ -156,8 +162,8 @@ namespace PX.Objects.MobiPunch
         #region ProjectID
         public abstract class projectID : IBqlField { }
 
-        [EPActivityProjectDefault(typeof(isBillable), PersistingCheck = PXPersistingCheck.Nothing)]
-        [ActiveProjectOrContractBaseAttribute]
+        [ProjectDefault(PersistingCheck = PXPersistingCheck.Nothing)]
+        [ActiveProjectOrContractBase]
         [PXFormula(typeof(
             Switch<
                 Case<Where<Not<FeatureInstalled<FeaturesSet.projectModule>>>, DefaultValue<projectID>,

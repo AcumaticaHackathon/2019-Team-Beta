@@ -7,15 +7,15 @@ namespace PX.Objects.MobiPunch
     public class TimePunchedAttribute : PXIntAttribute,
                                         IPXFieldSelectingSubscriber
     {
-        public static DateTime PunchDateTime => PX.Common.PXTimeZoneInfo.Now;
+        public static DateTime PunchDateTime => DateTime.Now; //PX.Common.PXTimeZoneInfo.Now;
 
         private Type _PunchInDateTime;
         private Type _PunchOutDateTime;
 
-        //public TimePunchedAttribute(Type punchInDateTime) : base()
-        //{
-        //    _PunchInDateTime = punchInDateTime;
-        //}
+        public TimePunchedAttribute(Type punchInDateTime, Type punchOutDateTime) : this(punchInDateTime)
+        {
+            _PunchOutDateTime = punchOutDateTime;
+        }
 
         public TimePunchedAttribute(Type punchInDateTime) : base()
         {

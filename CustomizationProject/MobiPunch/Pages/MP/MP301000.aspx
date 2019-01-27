@@ -25,14 +25,11 @@
 				TimeMode="true" SuppressLabel="true" Width="84" CommitChanges="True" />
             <px:PXLayoutRule ID="PXLayoutRule1" runat="server" />          
             <px:PXTimeSpan runat="server" DataField="TimeSpentCalc" ID="RegularTime" Enabled="False" Size="s" LabelWidth="55" InputMask="hh:mm" MaxHours="99" SummaryMode="true"/>
-            <px:PXLayoutRule runat="server" StartColumn="True">
-            </px:PXLayoutRule>
-            <px:PXLayoutRule StartGroup="True" GroupCaption="Punch Location" runat="server">
-            </px:PXLayoutRule>
-            <px:PXNumberEdit ID="edPunchInGPSLatitudet" runat="server" DataField="PunchInGPSLatitude" CommitChanges = "True">
-            </px:PXNumberEdit>
-            <px:PXNumberEdit ID="edPunchInGPSLongitudet" runat="server" DataField="PunchInGPSLongitude" CommitChanges = "True">
-            </px:PXNumberEdit>
+            <px:PXTextEdit ID="edDescription" runat="server" DataField="Description" />
+            <px:PXLayoutRule runat="server" StartColumn="True"/>
+            <px:PXLayoutRule StartGroup="True" GroupCaption="Punch Location" runat="server"/>
+            <px:PXNumberEdit ID="edPunchInGPSLatitudet" runat="server" DataField="PunchInGPSLatitude" CommitChanges = "True"/>
+            <px:PXNumberEdit ID="edPunchInGPSLongitudet" runat="server" DataField="PunchInGPSLongitude" CommitChanges = "True"/>
             <px:PXButton ID="btnViewPunchInGPSOnMap" runat="server" Height="24px"
                 Text="View on Map" Width="100px">
                 <AutoCallBack Command="ViewPunchInGPSOnMap" Target="ds">
@@ -41,6 +38,13 @@
             <px:PXTextEdit ID="edMem_GPSLatitudeLongitude" runat="server"
                            DataField="Mem_GPSLatitudeLongitude" AlignLeft="True" Enabled = "False">
             </px:PXTextEdit>
+            <px:PXLayoutRule runat="server" StartColumn="True"/>
+            <px:PXLayoutRule StartGroup="True" GroupCaption="Activity" runat="server"/>
+            <px:PXSegmentMask ID="edProjectID" runat="server" DataField="ProjectID"></px:PXSegmentMask>
+            <px:PXSegmentMask ID="edProjectTaskID" runat="server" DataField="ProjectTaskID"></px:PXSegmentMask>
+            <px:PXTextEdit ID="edLabourItemID" runat="server" DataField="LabourItemID"></px:PXTextEdit>
+            <px:PXSelector ID="edEarningTypeID" runat="server" DataField="EarningTypeID"></px:PXSelector>
+            <px:PXCheckBox ID="edIsBillable" runat="server" DataField="IsBillable" />  
 		</Template>
 	</px:PXFormView>
 </asp:Content>
