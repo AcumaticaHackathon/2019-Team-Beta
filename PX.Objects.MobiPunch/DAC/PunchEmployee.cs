@@ -35,7 +35,7 @@ namespace PX.Objects.MobiPunch
         #region PunchInDateTime
         public abstract class punchInDateTime : IBqlField { }
 
-        [EPAllDaySupportDateTime(AllDayField = typeof(allDay), DisplayNameDate = "Punch In Date", DisplayNameTime = "Punch In Time")]
+        [EPAllDaySupportDateTime(DisplayNameDate = "Punch In Date", DisplayNameTime = "Punch In Time")]
         [PXFormula(typeof(TimeZoneNow))]
         [PXUIField(DisplayName = "Punch In Date Time")]
         public virtual DateTime? PunchInDateTime { get; set; }
