@@ -25,8 +25,21 @@
         </layout>
         <data>
             <SiteMap>
-                <row Position="13" Title="Punch Entry" Url="~/Pages/MP/MP301000.aspx" Expanded="0" IsFolder="0" ScreenID="MP301000" NodeID="4a775cee-fc77-4567-97ea-5e706553b13f" ParentID="8f1b9e3e-ef46-45b6-b213-32ec1e3fd132" />
+                <row Position="13" Title="Punch Entry" Url="~/Pages/MP/MP301000.aspx" Expanded="0" IsFolder="0" ScreenID="MP301000" NodeID="4a775cee-fc77-4567-97ea-5e706553b13f" ParentID="8f1b9e3e-ef46-45b6-b213-32ec1e3fd132">
+                    <MUIScreen IsPortal="0" WorkspaceID="244fab62-7acc-4ffd-8367-569493194460" Order="10" SubcategoryID="3921cd5a-ffb7-4290-ba86-57d795c4b9ff" />
+                </row>
             </SiteMap>
+            <MUIWorkspace>
+                <row IsPortal="0" WorkspaceID="244fab62-7acc-4ffd-8367-569493194460" Order="64" Title="Time and Expenses" Icon="calendar" AreaID="62cfd5dc-8eb9-4e92-bbcd-e0a99eb5e5df" ScreenID="WSEP0000" IsSystem="0">
+                    <MUIFavoriteWorkspace IsPortal="0" Username="" IsFavorite="1" />
+                </row>
+            </MUIWorkspace>
+            <MUISubcategory>
+                <row IsPortal="0" SubcategoryID="3921cd5a-ffb7-4290-ba86-57d795c4b9ff" Order="272" Name="Punch" Icon="" IsSystem="0" />
+            </MUISubcategory>
+            <MUIArea>
+                <row IsPortal="0" AreaID="62cfd5dc-8eb9-4e92-bbcd-e0a99eb5e5df" Order="20" Name="Operations" />
+            </MUIArea>
         </data>
     </data-set>
 </SiteMapNode>

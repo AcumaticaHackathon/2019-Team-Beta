@@ -26,7 +26,7 @@
         <data>
             <SiteMap>
                 <row Position="13" Title="Punch Review" Url="~/Pages/MP/MP302000.aspx" Expanded="0" IsFolder="0" ScreenID="MP302000" NodeID="08912098-07d0-4857-b025-2c09ec21fca0" ParentID="8f1b9e3e-ef46-45b6-b213-32ec1e3fd132">
-                    <MUIScreen IsPortal="0" WorkspaceID="244fab62-7acc-4ffd-8367-569493194460" Order="25" SubcategoryID="98e86774-69e3-41ea-b94f-eb2c7a8426d4" />
+                    <MUIScreen IsPortal="0" WorkspaceID="244fab62-7acc-4ffd-8367-569493194460" Order="20" SubcategoryID="3921cd5a-ffb7-4290-ba86-57d795c4b9ff" />
                 </row>
             </SiteMap>
             <MUIWorkspace>
@@ -35,8 +35,7 @@
                 </row>
             </MUIWorkspace>
             <MUISubcategory>
-                <row IsPortal="1" SubcategoryID="98e86774-69e3-41ea-b94f-eb2c7a8426d4" Order="896" Name="Inquiries" Icon="" IsSystem="1" />
-                <row IsPortal="0" SubcategoryID="98e86774-69e3-41ea-b94f-eb2c7a8426d4" Order="896" Name="Inquiries" Icon="" IsSystem="1" />
+                <row IsPortal="0" SubcategoryID="3921cd5a-ffb7-4290-ba86-57d795c4b9ff" Order="272" Name="Punch" Icon="" IsSystem="0" />
             </MUISubcategory>
             <MUIArea>
                 <row IsPortal="0" AreaID="62cfd5dc-8eb9-4e92-bbcd-e0a99eb5e5df" Order="20" Name="Operations" />
