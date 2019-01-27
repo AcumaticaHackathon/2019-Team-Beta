@@ -40,6 +40,12 @@ namespace PX.Objects.MobiPunch
         [PXUIField(DisplayName = "Punch In Date Time")]
         public virtual DateTime? PunchInDateTime { get; set; }
         #endregion
+        
+        public abstract class timeSpentCalc : IBqlField { }
+        [PXInt]
+        [PXTimeList(30, 335, ExclusiveValues = false)]
+        [PXUIField(DisplayName = "Time Spent", Enabled = false)]
+        public virtual Int32? TimeSpentCalc { get; set; }
 
         #region PunchInGPSLatitude
         public abstract class punchInGPSLatitude : PX.Data.IBqlField
