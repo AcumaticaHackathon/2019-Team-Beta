@@ -67,7 +67,7 @@ namespace PX.Objects.MobiPunch
         public virtual decimal? PunchInGPSLongitude { get; set; }
         #endregion
 
-        #region Subject
+        #region Description
         public abstract class description : IBqlField { }
 
         [PXDBString(Common.Constants.TranDescLength, InputMask = "", IsUnicode = true)]
