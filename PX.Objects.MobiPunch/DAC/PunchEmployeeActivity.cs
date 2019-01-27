@@ -10,6 +10,7 @@ using PX.SM;
 
 namespace PX.Objects.MobiPunch
 {
+    [PXEMailSource]
     [Serializable]
     public class PunchEmployeeActivity : IBqlTable
     {
