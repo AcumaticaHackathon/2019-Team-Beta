@@ -55,7 +55,9 @@
     <Compile Include="Descriptor\PunchEmployeeActivityStatusAttribute.cs" />
     <Compile Include="Descriptor\PunchEmployeeStatusAttribute.cs" />
     <Compile Include="Descriptor\Messages.cs" />
+    <Compile Include="MPActivityMaint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PunchEntry.cs" />
     <Compile Include="PunchReview.cs" />
   </ItemGroup>
   <ItemGroup />
