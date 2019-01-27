@@ -92,7 +92,7 @@ namespace PX.Objects.MobiPunch
         }
 
         [PXDBDecimal(6)]
-        [PXUIField(DisplayName = "Latitude", Enabled = false)]
+        [PXUIField(DisplayName = "Punch In Latitude", Enabled = false)]
         public virtual decimal? PunchInGPSLatitude { get; set; }
         #endregion
 
@@ -102,10 +102,9 @@ namespace PX.Objects.MobiPunch
         }
 
         [PXDBDecimal(6)]
-        [PXUIField(DisplayName = "Longitude", Enabled = false)]
+        [PXUIField(DisplayName = "Punch In Longitude", Enabled = false)]
         public virtual decimal? PunchInGPSLongitude { get; set; }
         #endregion
-
 
         #region PunchOutDateTime
         public abstract class punchOutDateTime : IBqlField { }
@@ -122,7 +121,7 @@ namespace PX.Objects.MobiPunch
         }
 
         [PXDBDecimal(6)]
-        [PXUIField(DisplayName = "Latitude", Enabled = false)]
+        [PXUIField(DisplayName = "Punch Out Latitude", Enabled = false)]
         public virtual decimal? PunchOutGPSLatitude { get; set; }
         #endregion
 
@@ -132,7 +131,7 @@ namespace PX.Objects.MobiPunch
         }
 
         [PXDBDecimal(6)]
-        [PXUIField(DisplayName = "Longitude", Enabled = false)]
+        [PXUIField(DisplayName = "Punch Out Longitude", Enabled = false)]
         public virtual decimal? PunchOutGPSLongitude { get; set; }
         #endregion
 
@@ -159,7 +158,7 @@ namespace PX.Objects.MobiPunch
         public abstract class projectID : IBqlField { }
 
         [EPActivityProjectDefault(typeof(isBillable), PersistingCheck = PXPersistingCheck.Nothing)]
-        //TODO: FIGURE OUT OWNERID[EPProject(typeof(ownerID), FieldClass = ProjectAttribute.DimensionName)]
+        [ActiveProjectOrContractBaseAttribute]
         [PXFormula(typeof(
             Switch<
                 Case<Where<Not<FeatureInstalled<FeaturesSet.projectModule>>>, DefaultValue<projectID>,

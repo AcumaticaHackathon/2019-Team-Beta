@@ -14,7 +14,7 @@ namespace PX.Objects.MobiPunch
         public static DateTime PunchDateTime => PX.Common.PXTimeZoneInfo.Now;
 
         public PXAction<PunchEmployee> viewPunchInGPSOnMap;
-        [PXUIField(DisplayName = "View on Map", MapEnableRights = PXCacheRights.Select, MapViewRights = PXCacheRights.Select, Visible = false)]
+        [PXUIField(DisplayName = "View on Map", MapEnableRights = PXCacheRights.Select, MapViewRights = PXCacheRights.Select)]
         [PXButton]
         public virtual IEnumerable ViewPunchInGPSOnMap(PXAdapter adapter)
         {
@@ -66,7 +66,6 @@ namespace PX.Objects.MobiPunch
             new PX.Data.GoogleMapLatLongRedirector().ShowAddressByLocation(latitude, longitude);
         }
 
-
         [PXButton]
         [PXUIField(DisplayName = "Punch")]
         public virtual void punch()
@@ -78,6 +77,12 @@ namespace PX.Objects.MobiPunch
                 //TODO: Define condition for conditional punch
                 row.Status = PunchEmployeeStatusAttribute.PunchedIn;
                 row.PunchInDateTime = PunchDateTime;
+                if (IsMobile)
+                {
+                    string[] parts = row.Mem_GPSLatitudeLongitude.Split(':');
+                    row.PunchInGPSLatitude = decimal.Parse(parts[0]);
+                    row.PunchInGPSLongitude = decimal.Parse(parts[1]);
+                }
             }
             else
             {
@@ -109,6 +114,13 @@ namespace PX.Objects.MobiPunch
 
             activity.PunchOutDateTime = PunchDateTime;
             activity.RequireApproval = punchEmployee.Status == PunchEmployeeStatusAttribute.ConditionallyPunchedIn;
+
+            if (IsMobile)
+            {
+                string[] parts = punchEmployee.Mem_GPSLatitudeLongitude.Split(':');
+                punchEmployee.PunchInGPSLatitude = decimal.Parse(parts[0]);
+                punchEmployee.PunchInGPSLongitude = decimal.Parse(parts[1]);
+            }
 
             return activity;
         }

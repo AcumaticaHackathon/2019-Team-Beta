@@ -38,6 +38,9 @@
                 <AutoCallBack Command="ViewPunchInGPSOnMap" Target="ds">
                 </AutoCallBack>
             </px:PXButton>
+            <px:PXTextEdit ID="edMem_GPSLatitudeLongitude" runat="server"
+                           DataField="Mem_GPSLatitudeLongitude" AlignLeft="True" Enabled = "False">
+            </px:PXTextEdit>
 		</Template>
 	</px:PXFormView>
 </asp:Content>
