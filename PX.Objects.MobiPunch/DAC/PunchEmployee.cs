@@ -82,7 +82,7 @@ namespace PX.Objects.MobiPunch
         #region ProjectID
         public abstract class projectID : IBqlField { }
 
-        [EPActivityProjectDefault(typeof(isBillable))]
+        [EPActivityProjectDefault(typeof(isBillable), PersistingCheck = PXPersistingCheck.Nothing)]
         [EPProject(typeof(ownerID), FieldClass = ProjectAttribute.DimensionName)]
         [PXFormula(typeof(
             Switch<
