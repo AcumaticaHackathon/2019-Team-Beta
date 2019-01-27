@@ -25,7 +25,7 @@
 				TimeMode="true" SuppressLabel="true" Width="84" CommitChanges="True" />
             <px:PXLayoutRule ID="PXLayoutRule1" runat="server" />          
             <px:PXTimeSpan runat="server" DataField="TimeSpentCalc" ID="RegularTime" Enabled="False" Size="s" LabelWidth="55" InputMask="hh:mm" MaxHours="99" SummaryMode="true"/>
-            <px:PXTextEdit ID="edDescription" runat="server" DataField="Description" />
+            <px:PXTextEdit ID="edDescription" runat="server" DataField="Description" CommitChanges="true"/>
             <px:PXLayoutRule runat="server" StartColumn="True"/>
             <px:PXLayoutRule StartGroup="True" GroupCaption="Punch Location" runat="server"/>
             <px:PXNumberEdit ID="edPunchInGPSLatitudet" runat="server" DataField="PunchInGPSLatitude" CommitChanges = "True"/>
@@ -40,10 +40,10 @@
             </px:PXTextEdit>
             <px:PXLayoutRule runat="server" StartColumn="True"/>
             <px:PXLayoutRule StartGroup="True" GroupCaption="Activity" runat="server"/>
-            <px:PXSegmentMask ID="edProjectID" runat="server" DataField="ProjectID"></px:PXSegmentMask>
-            <px:PXSegmentMask ID="edProjectTaskID" runat="server" DataField="ProjectTaskID"></px:PXSegmentMask>
-            <px:PXTextEdit ID="edLabourItemID" runat="server" DataField="LabourItemID"></px:PXTextEdit>
-            <px:PXSelector ID="edEarningTypeID" runat="server" DataField="EarningTypeID"></px:PXSelector>
+            <px:PXSegmentMask ID="edProjectID" runat="server" DataField="ProjectID" CommitChanges="true"></px:PXSegmentMask>
+            <px:PXSegmentMask ID="edProjectTaskID" runat="server" DataField="ProjectTaskID" CommitChanges="true"></px:PXSegmentMask>
+            <px:PXTextEdit ID="edLabourItemID" runat="server" DataField="LabourItemID" CommitChanges="true"></px:PXTextEdit>
+            <px:PXSelector ID="edEarningTypeID" runat="server" DataField="EarningTypeID" CommitChanges="true"></px:PXSelector>
             <px:PXCheckBox ID="edIsBillable" runat="server" DataField="IsBillable" />  
 		</Template>
 	</px:PXFormView>

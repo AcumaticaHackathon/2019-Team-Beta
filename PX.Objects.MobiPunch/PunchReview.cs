@@ -49,7 +49,7 @@ namespace PX.Objects.MobiPunch
 
             var punch = CreateInstance<PunchEntry>();
             punch.Document.Current = Documents.Current;
-            punch.Punch.Press();
+            punch.PunchInOut.Press();
 
             return adapter.Get();
         }
