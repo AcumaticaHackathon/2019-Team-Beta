@@ -38,7 +38,7 @@
                         <px:PXSelector ID="edEarningTypeID" runat="server" DataField="EarningTypeID"></px:PXSelector>
                         <px:PXCheckBox ID="edIsBillable" runat="server" DataField="IsBillable" />    
 					</px:PXPanel>
-                    <px:PXGrid ID="gridApproval" runat="server" DataSourceID="ds" Width="100%" SkinID="DetailsInTab" NoteIndicator="True">
+<%--                    <px:PXGrid ID="gridApproval" runat="server" DataSourceID="ds" Width="100%" SkinID="DetailsInTab" NoteIndicator="True">
                         <AutoSize Enabled="true" />
                         <Mode AllowAddNew="false" AllowDelete="false" AllowUpdate="false" />
                         <ActionBar>
@@ -65,7 +65,7 @@
                                 <Layout FormViewHeight="" />
                             </px:PXGridLevel>
                         </Levels>
-                    </px:PXGrid>
+                    </px:PXGrid>--%>
                 </Template>
 	</px:PXFormView>
 
