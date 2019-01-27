@@ -19,16 +19,15 @@
 							ControlSize="M" />
                         <px:PXSelector ID="edEmployeeID" runat="server" DataField="EmployeeID"></px:PXSelector>
                         <px:PXDropDown ID="edStatus" runat="server" AllowNull="False" DataField="Status" CommitChanges="True" />
-                        <px:PXCheckBox ID="edHold" runat="server" DataField="Hold" />   
                         <px:PXLayoutRule ID="PXLayoutRule3" runat="server" Merge="True" />
                         <px:PXDateTimeEdit ID="edPunchInDateTime_Date" runat="server" DataField="PunchInDateTime"
 							CommitChanges="True" />
-                        <px:PXDateTimeEdit ID="edPunchInDateTime_Time" TimeMode="True" Width="84" SuppressLabel="true" runat="server" DataField="PunchInDateTime"
+                        <px:PXDateTimeEdit ID="edPunchInDateTime_Time" TimeMode="True" SuppressLabel="true" runat="server" DataField="PunchInDateTime"
 							CommitChanges="True" />
                         <px:PXLayoutRule ID="PXLayoutRule2" runat="server" Merge="True" />
                         <px:PXDateTimeEdit ID="edPunchOutDateTime_Date" runat="server" DataField="PunchOutDateTime"
 							CommitChanges="True" />
-                        <px:PXDateTimeEdit ID="edPunchOutDateTime_Time" TimeMode="True" Width="84" runat="server" SuppressLabel="true" DataField="PunchOutDateTime"
+                        <px:PXDateTimeEdit ID="edPunchOutDateTime_Time" TimeMode="True" runat="server" SuppressLabel="true" DataField="PunchOutDateTime"
 							CommitChanges="True" />
                         <px:PXLayoutRule ID="PXLayoutRule4" runat="server" />
                         <px:PXCheckBox ID="edRequireApproval" runat="server" DataField="RequireApproval" />    
