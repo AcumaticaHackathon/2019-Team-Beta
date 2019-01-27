@@ -51,7 +51,7 @@
 <asp:Content ID="cont3" ContentPlaceHolderID="phG" runat="Server">
     <px:PXGrid ID="grid" runat="server" DataSourceID="ds" Height="250px" Style="z-index: 100; left: 0px;
 						top: 0px;" Width="100%" SkinID="DetailsInTab" SyncPosition="True">
-		<AutoSize Enabled="True" MinHeight="150" />
+		<AutoSize Enabled="True" MinHeight="150" Container="Window" />
 		<Mode />
         <ActionBar/>
 		    <Levels>
@@ -59,25 +59,26 @@
 				    <RowTemplate>
 					    <px:PXLayoutRule ID="PXLayoutRule1" runat="server" StartColumn="True" LabelsWidth="S"
 							ControlSize="M" />
-                        <px:PXDropDown ID="edStatus" runat="server" AllowNull="False" DataField="Status" CommitChanges="True" />
+                        <px:PXDropDown ID="edDetailStatus" runat="server" AllowNull="False" DataField="Status" CommitChanges="True" />
                         <px:PXLayoutRule ID="PXLayoutRule3" runat="server" Merge="True" />
-                        <px:PXDateTimeEdit ID="edPunchInDateTime_Date" runat="server" DataField="PunchInDateTime"
+                        <px:PXDateTimeEdit ID="edDetailPunchInDateTime_Date" runat="server" DataField="PunchInDateTime"
 							CommitChanges="True" />
-                        <px:PXDateTimeEdit ID="edPunchInDateTime_Time" TimeMode="True" SuppressLabel="true" runat="server" DataField="PunchInDateTime"
+                        <px:PXDateTimeEdit ID="edDetailPunchInDateTime_Time" TimeMode="True" SuppressLabel="true" runat="server" DataField="PunchInDateTime"
 							CommitChanges="True" />
                         <px:PXLayoutRule ID="PXLayoutRule2" runat="server" Merge="True" />
-                        <px:PXDateTimeEdit ID="edPunchOutDateTime_Date" runat="server" DataField="PunchOutDateTime"
+                        <px:PXDateTimeEdit ID="edDetailPunchOutDateTime_Date" runat="server" DataField="PunchOutDateTime"
 							CommitChanges="True" />
-                        <px:PXDateTimeEdit ID="edPunchOutDateTime_Time" TimeMode="True" runat="server" SuppressLabel="true" DataField="PunchOutDateTime"
+                        <px:PXDateTimeEdit ID="edDetailPunchOutDateTime_Time" TimeMode="True" runat="server" SuppressLabel="true" DataField="PunchOutDateTime"
 							CommitChanges="True" />
+                        <px:PXTimeSpan runat="server" DataField="TimeSpentCalc" ID="RegularTime" Enabled="False" Size="s" LabelWidth="55" InputMask="hh:mm" MaxHours="99" SummaryMode="true"/>
                         <px:PXLayoutRule ID="PXLayoutRule4" runat="server" />
-                        <px:PXCheckBox ID="edRequireApproval" runat="server" DataField="RequireApproval" />    
-                        <px:PXTextEdit ID="edDescription" runat="server" DataField="Description" />
-                        <px:PXSegmentMask ID="edProjectID" runat="server" DataField="ProjectID"></px:PXSegmentMask>
-                        <px:PXSegmentMask ID="edProjectTaskID" runat="server" DataField="ProjectTaskID"></px:PXSegmentMask>
-                        <px:PXTextEdit ID="edLabourItemID" runat="server" DataField="LabourItemID"></px:PXTextEdit>
-                        <px:PXSelector ID="edEarningTypeID" runat="server" DataField="EarningTypeID"></px:PXSelector>
-                        <px:PXCheckBox ID="edIsBillable" runat="server" DataField="IsBillable" />  
+                        <px:PXCheckBox ID="edDetailRequireApproval" runat="server" DataField="RequireApproval" />    
+                        <px:PXTextEdit ID="edDetailDescription" runat="server" DataField="Description" />
+                        <px:PXSegmentMask ID="edDetailProjectID" runat="server" DataField="ProjectID"></px:PXSegmentMask>
+                        <px:PXSegmentMask ID="edDetailProjectTaskID" runat="server" DataField="ProjectTaskID"></px:PXSegmentMask>
+                        <px:PXTextEdit ID="edDetailLabourItemID" runat="server" DataField="LabourItemID"></px:PXTextEdit>
+                        <px:PXSelector ID="edDetailEarningTypeID" runat="server" DataField="EarningTypeID"></px:PXSelector>
+                        <px:PXCheckBox ID="edDetailIsBillable" runat="server" DataField="IsBillable" />  
 				    </RowTemplate>
 				    <Columns>
                         <px:PXGridColumn DataField="Status" />
