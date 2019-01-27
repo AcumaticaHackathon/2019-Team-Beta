@@ -92,7 +92,7 @@ namespace PX.Objects.MobiPunch
         }
 
         [PXDBDecimal(6)]
-        [PXUIField(DisplayName = "Latitude", Enabled = false)]
+        [PXUIField(DisplayName = "Punch In Latitude", Enabled = false)]
         public virtual decimal? PunchInGPSLatitude { get; set; }
         #endregion
 
@@ -102,10 +102,9 @@ namespace PX.Objects.MobiPunch
         }
 
         [PXDBDecimal(6)]
-        [PXUIField(DisplayName = "Longitude", Enabled = false)]
+        [PXUIField(DisplayName = "Punch In Longitude", Enabled = false)]
         public virtual decimal? PunchInGPSLongitude { get; set; }
         #endregion
-
 
         #region PunchOutDateTime
         public abstract class punchOutDateTime : IBqlField { }
@@ -116,13 +115,19 @@ namespace PX.Objects.MobiPunch
         public virtual DateTime? PunchOutDateTime { get; set; }
         #endregion
 
+        public abstract class timeSpentCalc : IBqlField { }
+        [PXTimeList(30, 335, ExclusiveValues = false)]
+        [TimePunched(typeof(punchInDateTime), typeof(punchOutDateTime))]
+        [PXUIField(DisplayName = "Time Spent", Enabled = false)]
+        public virtual Int32? TimeSpentCalc { get; set; }
+
         #region PunchOutGPSLatitude
         public abstract class punchOutGPSLatitude : PX.Data.IBqlField
         {
         }
 
         [PXDBDecimal(6)]
-        [PXUIField(DisplayName = "Latitude", Enabled = false)]
+        [PXUIField(DisplayName = "Punch Out Latitude", Enabled = false)]
         public virtual decimal? PunchOutGPSLatitude { get; set; }
         #endregion
 
@@ -132,7 +137,7 @@ namespace PX.Objects.MobiPunch
         }
 
         [PXDBDecimal(6)]
-        [PXUIField(DisplayName = "Longitude", Enabled = false)]
+        [PXUIField(DisplayName = "Punch Out Longitude", Enabled = false)]
         public virtual decimal? PunchOutGPSLongitude { get; set; }
         #endregion
 
@@ -144,11 +149,10 @@ namespace PX.Objects.MobiPunch
         public abstract class requireApproval : IBqlField { }
         #endregion
 
-        #region Subject
+        #region Description
         public abstract class description : IBqlField { }
 
         [PXDBString(Common.Constants.TranDescLength, InputMask = "", IsUnicode = true)]
-        [PXDefault]
         [PXUIField(DisplayName = "Description", Visibility = PXUIVisibility.SelectorVisible)]
         [PXFieldDescription]
         [PXNavigateSelector(typeof(description))]
@@ -158,8 +162,8 @@ namespace PX.Objects.MobiPunch
         #region ProjectID
         public abstract class projectID : IBqlField { }
 
-        [EPActivityProjectDefault(typeof(isBillable), PersistingCheck = PXPersistingCheck.Nothing)]
-        //TODO: FIGURE OUT OWNERID[EPProject(typeof(ownerID), FieldClass = ProjectAttribute.DimensionName)]
+        [ProjectDefault(PersistingCheck = PXPersistingCheck.Nothing)]
+        [ActiveProjectOrContractBase]
         [PXFormula(typeof(
             Switch<
                 Case<Where<Not<FeatureInstalled<FeaturesSet.projectModule>>>, DefaultValue<projectID>,

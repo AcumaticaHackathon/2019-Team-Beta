@@ -44,8 +44,8 @@ namespace PX.Objects.MobiPunch
         #endregion
         
         public abstract class timeSpentCalc : IBqlField { }
-        [PXInt]
         [PXTimeList(30, 335, ExclusiveValues = false)]
+        [TimePunched(typeof(punchInDateTime))]
         [PXUIField(DisplayName = "Time Spent", Enabled = false)]
         public virtual Int32? TimeSpentCalc { get; set; }
 
@@ -82,8 +82,8 @@ namespace PX.Objects.MobiPunch
         #region ProjectID
         public abstract class projectID : IBqlField { }
 
-        [EPActivityProjectDefault(typeof(isBillable), PersistingCheck = PXPersistingCheck.Nothing)]
-        [EPProject(typeof(ownerID), FieldClass = ProjectAttribute.DimensionName)]
+        [ProjectDefault(PersistingCheck = PXPersistingCheck.Nothing)]
+        [ActiveProjectOrContractBase]
         [PXFormula(typeof(
             Switch<
                 Case<Where<Not<FeatureInstalled<FeaturesSet.projectModule>>>, DefaultValue<projectID>,
@@ -129,6 +129,16 @@ namespace PX.Objects.MobiPunch
         [PXUIField(DisplayName = "Billable", FieldClass = "BILLABLE")]
         [PXDefault(false, PersistingCheck = PXPersistingCheck.Nothing)]
         public virtual bool? IsBillable { get; set; }
+        #endregion
+
+        #region Mem_GPSLatitudeLongitude    
+        public abstract class mem_GPSLatitudeLongitude : PX.Data.IBqlField
+        {
+        }
+
+        [PXString(255)]
+        [PXUIField(DisplayName = "GPS Latitude Longitude", Enabled = false)]
+        public virtual string Mem_GPSLatitudeLongitude { get; set; }
         #endregion
     }
 }
