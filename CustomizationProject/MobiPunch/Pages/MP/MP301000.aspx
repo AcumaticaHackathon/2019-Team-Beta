@@ -86,7 +86,7 @@
                         <px:PXGridColumn DataField="PunchInDateTime_Time" />
                         <px:PXGridColumn DataField="PunchOutDateTime_Date" />
                         <px:PXGridColumn DataField="PunchOutDateTime_Time" />
-                        <px:PXGridColumn DataField="TimeSpentCalc" />
+                        <px:PXGridColumn DataField="TimeSpentCalc" Label="TimeSpentCalc" Width="81px" RenderEditorText="True" />
                         <px:PXGridColumn DataField="PunchInGPSLatitude" LinkCommand="viewPunchActivityInGPSOnMap" />
                         <px:PXGridColumn DataField="PunchInGPSLongitude" LinkCommand="viewPunchActivityInGPSOnMap" />
                         <px:PXGridColumn DataField="PunchOutGPSLatitude" LinkCommand="viewPunchActivityOutGPSOnMap" />
