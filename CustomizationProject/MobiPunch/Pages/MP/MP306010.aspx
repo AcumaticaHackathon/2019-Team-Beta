@@ -33,9 +33,9 @@
                         <px:PXLayoutRule ID="PXLayoutRule4" runat="server" />
                         <px:PXCheckBox ID="edRequireApproval" runat="server" DataField="RequireApproval" />    
                         <px:PXTextEdit ID="edDescription" runat="server" DataField="Description" />
-                        <px:PXTextEdit ID="edProjectID" runat="server" DataField="ProjectID"></px:PXTextEdit>
-                        <px:PXSelector ID="edProjectTaskID" runat="server" DataField="ProjectTaskID"></px:PXSelector>
-                        <px:PXSelector ID="edEarningTypeID" runat="server" DataField="EarningTypeID"></px:PXSelector>
+                        <px:PXSegmentMask ID="edProjectID" runat="server" DataField="ProjectID"/>
+                        <px:PXSegmentMask ID="edProjectTaskID" runat="server" DataField="ProjectTaskID"/>
+                        <px:PXSelector ID="edEarningTypeID" runat="server" DataField="EarningTypeID"/>
                         <px:PXCheckBox ID="edIsBillable" runat="server" DataField="IsBillable" />    
 					</px:PXPanel>
 <%--                    <px:PXGrid ID="gridApproval" runat="server" DataSourceID="ds" Width="100%" SkinID="DetailsInTab" NoteIndicator="True">

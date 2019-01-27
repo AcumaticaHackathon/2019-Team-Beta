@@ -1,12 +1,13 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPages/FormTab.master" AutoEventWireup="true"
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/FormDetail.master" AutoEventWireup="true"
     ValidateRequest="false" CodeFile="MP301000.aspx.cs" Inherits="Page_MP301000" Title="Untitled Page" %>
-<%@ MasterType VirtualPath="~/MasterPages/FormTab.master" %>
+<%@ MasterType VirtualPath="~/MasterPages/FormDetail.master" %>
 
 <asp:Content ID="cont1" ContentPlaceHolderID="phDS" runat="Server">
     <px:PXDataSource ID="ds" runat="server" Visible="True" Width="100%" TypeName="PX.Objects.MobiPunch.PunchEntry" PrimaryView="Document">
 		<CallbackCommands>
-            <px:PXDSCallbackCommand Name="ViewPunchInGPSOnMap" PopupCommand=""
-                PopupCommandTarget="" PopupPanel="" Text="" Visible="False" />
+            <px:PXDSCallbackCommand Name="ViewPunchInGPSOnMap" PopupCommand="" PopupCommandTarget="" PopupPanel="" Text="" Visible="False" />
+            <px:PXDSCallbackCommand Name="viewPunchActivityInGPSOnMap" PopupCommand="" PopupCommandTarget="" PopupPanel="" Text="" Visible="False" />
+            <px:PXDSCallbackCommand Name="viewPunchActivityOutGPSOnMap" PopupCommand="" PopupCommandTarget="" PopupPanel="" Text="" Visible="False" />
 		</CallbackCommands>
 	</px:PXDataSource>
 </asp:Content>
@@ -41,13 +42,55 @@
 	</px:PXFormView>
 </asp:Content>
 <asp:Content ID="cont3" ContentPlaceHolderID="phG" runat="Server">
-    <px:PXTab ID="tab" runat="server" Width="100%" Height="150px" DataSourceID="ds">
-		<Items>
-			<px:PXTabItem Text="Tab item 1">
-			</px:PXTabItem>
-			<px:PXTabItem Text="Tab item 2">
-			</px:PXTabItem>
-		</Items>
-		<AutoSize Container="Window" Enabled="True" MinHeight="150" />
-	</px:PXTab>
+    <px:PXGrid ID="grid" runat="server" DataSourceID="ds" Height="250px" Style="z-index: 100; left: 0px;
+						top: 0px;" Width="100%" SkinID="DetailsInTab" SyncPosition="True">
+		<AutoSize Enabled="True" MinHeight="150" />
+		<Mode />
+        <ActionBar/>
+		    <Levels>
+			    <px:PXGridLevel DataMember="PunchActivity">
+				    <RowTemplate>
+					    <px:PXLayoutRule ID="PXLayoutRule1" runat="server" StartColumn="True" LabelsWidth="S"
+							ControlSize="M" />
+                        <px:PXDropDown ID="edStatus" runat="server" AllowNull="False" DataField="Status" CommitChanges="True" />
+                        <px:PXLayoutRule ID="PXLayoutRule3" runat="server" Merge="True" />
+                        <px:PXDateTimeEdit ID="edPunchInDateTime_Date" runat="server" DataField="PunchInDateTime"
+							CommitChanges="True" />
+                        <px:PXDateTimeEdit ID="edPunchInDateTime_Time" TimeMode="True" SuppressLabel="true" runat="server" DataField="PunchInDateTime"
+							CommitChanges="True" />
+                        <px:PXLayoutRule ID="PXLayoutRule2" runat="server" Merge="True" />
+                        <px:PXDateTimeEdit ID="edPunchOutDateTime_Date" runat="server" DataField="PunchOutDateTime"
+							CommitChanges="True" />
+                        <px:PXDateTimeEdit ID="edPunchOutDateTime_Time" TimeMode="True" runat="server" SuppressLabel="true" DataField="PunchOutDateTime"
+							CommitChanges="True" />
+                        <px:PXLayoutRule ID="PXLayoutRule4" runat="server" />
+                        <px:PXCheckBox ID="edRequireApproval" runat="server" DataField="RequireApproval" />    
+                        <px:PXTextEdit ID="edDescription" runat="server" DataField="Description" />
+                        <px:PXSegmentMask ID="edProjectID" runat="server" DataField="ProjectID"></px:PXSegmentMask>
+                        <px:PXSegmentMask ID="edProjectTaskID" runat="server" DataField="ProjectTaskID"></px:PXSegmentMask>
+                        <px:PXSelector ID="edLabourItemID" runat="server" DataField="LabourItemID"></px:PXSelector>
+                        <px:PXSelector ID="edEarningTypeID" runat="server" DataField="EarningTypeID"></px:PXSelector>
+                        <px:PXCheckBox ID="edIsBillable" runat="server" DataField="IsBillable" />  
+				    </RowTemplate>
+				    <Columns>
+                        <px:PXGridColumn DataField="Status" />
+                        <px:PXGridColumn DataField="PunchInDateTime_Date" />
+                        <px:PXGridColumn DataField="PunchInDateTime_Time" />
+                        <px:PXGridColumn DataField="PunchOutDateTime_Date" />
+                        <px:PXGridColumn DataField="PunchOutDateTime_Time" />
+                        <px:PXGridColumn DataField="TimeSpentCalc" />
+                        <px:PXGridColumn DataField="PunchInGPSLatitude" LinkCommand="viewPunchActivityInGPSOnMap" />
+                        <px:PXGridColumn DataField="PunchInGPSLongitude" LinkCommand="viewPunchActivityInGPSOnMap" />
+                        <px:PXGridColumn DataField="PunchOutGPSLatitude" LinkCommand="viewPunchActivityOutGPSOnMap" />
+                        <px:PXGridColumn DataField="PunchOutGPSLongitude" LinkCommand="viewPunchActivityOutGPSOnMap" />
+                        <px:PXGridColumn DataField="Description" />
+                        <px:PXGridColumn DataField="ProjectID" />
+                        <px:PXGridColumn DataField="ProjectTaskID" />
+                        <px:PXGridColumn DataField="LabourItemID" />
+                        <px:PXGridColumn DataField="EarningTypeID" />
+                        <px:PXGridColumn DataField="IsBillable" TextAlign="Center" Type="CheckBox" />
+				    </Columns>
+			    </px:PXGridLevel>
+		    </Levels>
+	    </px:PXGrid>
 </asp:Content>
